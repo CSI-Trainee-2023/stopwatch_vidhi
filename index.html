@@ -16,28 +16,31 @@
         <div>STOP WATCH</div>
     </header>
     <div class="container">
+        <div class="timecontainer" style="display: flex;">
         <div class="timecount">
             <span class="time" id="hr">00</span>
             <span class="text">hr</span>
             <span class="time" id="min">00</span>
             <span class="text">min</span>
-            <span class="time" id="sec">00</span>
-            <span class="text">sec</span>
-            <span class="time" id="milesec">00</span>
+            <span class="time" id="sec" style="color: aqua;">00</span>
+            <span class="text" style="color: aqua;">sec</span>
+            <span class="time" id="milesec" style="color: aqua;">00</span>
             <span class="text"></span>
+        </div>
         </div>
         <div class="listlaps" style="    display: flex;
         height: 90px;
         overflow-y: scroll;
         margin: 44px;
         width: 50%;
-        background-color: cornsilk;">
+        color: black;
+        background-color: white;">
         <ul class="laps"></ul>
         </div>
         <div class="butn">
-            <button class="button" id ="play" onclick="play()"></button>
+            <button class="button" id ="play" onclick="play()">start</button>
             <!-- <button class="button" id ="stop" onclick="stop()">Stop</button> -->
-            <button class="button" id="reset" onclick="reset()">Reset</button>
+            <button class="button" id="reset" onclick="reset()" style="background-color: blueviolet;">Reset</button>
             <button class="button" id="lap" onclick="lap()">Lap</button>
             
         </div>

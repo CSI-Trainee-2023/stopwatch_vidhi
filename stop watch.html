@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop watch</title>
+    <link rel="stylesheet" href="./stop watch_files/style.css">
+</head>
+
+<body>
+    <header class="header" style="    font-size: 48px;
+    text-align: center;
+    margin: 27px;
+">
+        <div>STOP WATCH</div>
+    </header>
+    <div class="container">
+        <div class="timecontainer" style="display: flex;">
+        <div class="timecount">
+            <span class="time" id="hr">00</span>
+            <span class="text">hr</span>
+            <span class="time" id="min">00</span>
+            <span class="text">min</span>
+            <span class="time" id="sec" style="color: aqua;">04</span>
+            <span class="text" style="color: aqua;">sec</span>
+            <span class="time" id="milesec" style="color: aqua;">29</span>
+            <span class="text"></span>
+        </div>
+        </div>
+        <div class="listlaps" style="    display: flex;
+        height: 90px;
+        overflow-y: scroll;
+        margin: 44px;
+        width: 50%;
+        color: black;
+        background-color: white;">
+        <ul class="laps"><li>00 : 00 : 02 : 38</li></ul>
+        </div>
+        <div class="butn">
+            <button class="button" id="play" onclick="play()">Start</button>
+            <!-- <button class="button" id ="stop" onclick="stop()">Stop</button> -->
+            <button class="button" id="reset" onclick="reset()">Reset</button>
+            <button class="button" id="lap" onclick="lap()">Lap</button>
+            
+        </div>
+    </div>
+    <script src="./stop watch_files/script.js.download"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
