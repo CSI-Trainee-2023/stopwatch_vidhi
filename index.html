@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop watch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header" style="    font-size: 48px;
+    text-align: center;
+    margin: 27px;
+">
+        <div>STOP WATCH</div>
+    </header>
+    <div class="container">
+        <div class="timecount">
+            <span class="time" id="hr">00</span>
+            <span class="text">hr</span>
+            <span class="time" id="min">00</span>
+            <span class="text">min</span>
+            <span class="time" id="sec">00</span>
+            <span class="text">sec</span>
+            <span class="time" id="milesec">00</span>
+            <span class="text"></span>
+        </div>
+        <div class="listlaps" style="    display: flex;
+        height: 90px;
+        overflow-y: scroll;
+        margin: 44px;
+        width: 50%;
+        background-color: cornsilk;">
+        <ul class="laps"></ul>
+        </div>
+        <div class="butn">
+            <button class="button" id ="play" onclick="play()"></button>
+            <!-- <button class="button" id ="stop" onclick="stop()">Stop</button> -->
+            <button class="button" id="reset" onclick="reset()">Reset</button>
+            <button class="button" id="lap" onclick="lap()">Lap</button>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

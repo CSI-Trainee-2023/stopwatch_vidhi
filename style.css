@@ -1,0 +1,41 @@
+body{
+    background-color: rgb(152, 155, 165);
+    /* display: flex;
+    justify-content: center ;
+    align-items: center;
+    height: 90vh; */
+
+}
+.timecount{
+    border: 4px solid black;
+    padding: 35px;
+    width: 50%;
+    text-align: center;
+    /* display: flex; */
+    justify-content: center;
+    box-shadow: 10px 10px 5px lightblue
+}
+.time{
+font-size:100px;
+}
+.text{
+    font-size: 26px;
+}
+.button{
+    font-size: 30px;
+    cursor: pointer;
+    padding: 9px;
+    margin: 36px;    font-size: 30px;
+    cursor: pointer;
+    padding: 9px;
+    margin: 36px;
+}
+.butn{
+    text-align: center;
+    margin: 40px;
+    width: 50%;
+
+    /* font-size: 90px; */
+
+   
+}
