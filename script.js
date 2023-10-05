@@ -7,18 +7,31 @@ let arr=[];
 
 var laps = document.querySelector(".laps")
 var playButton = document.getElementById("play");
-playButton.innerHTML='Start';
+playButton.innerHTML='START';
+playButton.style.backgroundColor='green'
 var resetbutton=document.getElementById("reset");
-resetbutton.innerHTML='Reset';
-
+resetbutton.innerHTML='RESET';
+resetbutton.style.backgroundColor='orange'
+// if(timer==false){
+//     resetbutton.innerHTML='reset'
+// }
+// else{
+// resetbutton.innerHTML='laps';
+// }
 function play(){
     if(!timer){
         timer=true;
         stopwatch();
-        playButton.innerHTML='Stop'
+        resetbutton.innerHTML='LAPS';
+        resetbutton.style.backgroundColor='lightblue'
+        playButton.innerHTML='STOP'
+        playButton.style.backgroundColor='red'
     }else{
         timer=false;
-        playButton.innerHTML='Start'
+        playButton.innerHTML='Resume';
+        resetbutton.innerHTML='RESET';
+        resetbutton.style.backgroundColor='orange'
+        playButton.style.backgroundColor='yellow'
     }
 }
 // function stop(){
@@ -29,20 +42,29 @@ function getTimer(){
     return (hr<10 ? "0" + hr: hr) + " : " + (min<10 ? "0" + min : min) + " : " + (sec<10 ? "0" + sec : sec) + " : " + (count<10 ? "0" + count : count); 
 }
 function reset(){
-    timer=false;
-    hr=0;
-    min=0;
-    sec=0;
-    count=0;
-    document.getElementById("milesec").innerHTML="00";
-    document.getElementById("sec").innerHTML="00";
-    document.getElementById("min").innerHTML="00";
-    document.getElementById("hr").innerHTML="00";
-    // resetbutton.innerHTML='Laps';
-    laps.innerHTML = "";
-    arr=[];
-    localStorage.removeItem('laps');
+    if(timer==true){
+        lap();
+        resetbutton.innerHTML='LAPS'
+        resetButton.style.backgroundColor='blue'
      }
+    else{
+        timer=false;
+        hr=0;
+        min=0;
+        sec=0;
+        count=0;
+        document.getElementById("milesec").innerHTML="00";
+        document.getElementById("sec").innerHTML="00";
+        document.getElementById("min").innerHTML="00";
+        document.getElementById("hr").innerHTML="00";
+        resetbutton.innerHTML='RESET';
+        // resetbutton.style.backgroundColor='orange'
+        playButton.innerHTML='START';
+        playButton.style.backgroundColor='green'
+        laps.innerHTML = "";
+        arr=[];
+        // localStorage.removeItem('laps');
+    }}
    
     
 
@@ -54,6 +76,7 @@ function lap() {
         laps.appendChild(Li) ;
         arr.push(getTimer());
         localStorage.setItem('laps',JSON.stringify(arr));
+        // resetbutton.style.backgroundColor='blue';
     }
 }
 function stopwatch(){
@@ -101,8 +124,14 @@ function stopwatch(){
    
    
 }
-document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="s" && e.ctrlKey){play()}});
-document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="x" && e.ctrlKey){timer=false}});
-document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="r" && e.ctrlKey){reset()}});
-document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="l" && e.ctrlKey){lap()}});
+document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="s" && e.ctrlKey){ e.preventDefault();
+    play()}});
+document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="x" && e.ctrlKey){ e.preventDefault();
+    timer=false}});
+document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="r" && e.ctrlKey){ e.preventDefault();
+    reset()}});
+document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="l" && e.ctrlKey){ e.preventDefault();
+    lap()}});
+// document.addEventListener("keydown",e=>{if(e.key.toLowerCase()==="p" && e.ctrlKey){ e.preventDefault();
+//         timer=false;}});
 
